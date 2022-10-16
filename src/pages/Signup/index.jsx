@@ -16,7 +16,7 @@ const validationSchema = yup.object().shape({
 
 export const Signup = () => {
   const [auth, setAuth] = useLocalStorage('auth', {})
-  
+
   const formik = useFormik({
     onSubmit: async (values) => {
       // console.log(values)
@@ -39,7 +39,7 @@ export const Signup = () => {
   })
 
 
-  if(auth?.user?.id){
+  if (auth?.user?.id) {
     return <Navigate to="/dashboard" repalce={true} />
   }
 
@@ -107,8 +107,10 @@ export const Signup = () => {
           <button type="submit"
             className="block w-full text-center text-white bg-red-500 px-6 py-3 rounded-xl disabled:opacity-50"
             disabled={!formik.isValid || formik.isSubmitting}
-            >
+          >
             {formik.isSubmitting ? 'Carregando...' : 'Criar minha conta'}
+
+
           </button>
         </form>
       </main>
